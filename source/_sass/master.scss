@@ -1,0 +1,135 @@
+@import "../../bower_components/normalize-css/normalize.css";
+@import "../../bower_components/bourbon/dist/bourbon";
+@import "grid-settings";
+@import "../../bower_components/neat/app/assets/stylesheets/neat";
+@import "fonts";
+
+$primary-fg-color: #4a4a4a;
+$secondary-fg-color: #7ed321;
+$primary-bg-color: #f6f6f6;
+
+$serif-font: Lora, Georgia, 'Times New Roman', serif;
+$sans-serif-font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+body {
+    background: $primary-bg-color;
+    color: $primary-fg-color;
+    font: 1.3em $serif-font;
+} // body
+
+a {
+    &:link,
+    &:active,
+    &:visited {
+        color: $primary-fg-color;
+    } // :link, :active, :visited
+
+    &:hover {
+        color: $secondary-fg-color;
+        text-decoration: none;
+    } // :hover
+} // a
+
+.site-header,
+.site-footer,
+.wrap {
+    @include outer-container;
+
+    @include media(max-width 940px) {
+        margin: 0 1em;
+    }
+} // .site-header, .site-footer, .wrap
+
+.site-header {
+    .logo {
+        margin: 2em 0;
+        text-align: center;
+    } // .logo
+} // .site-header
+
+.project {
+    margin-bottom: 1em;
+    padding: 1em;
+    border: 5px solid $secondary-fg-color;
+
+    header {
+        h2 {
+            margin: 0;
+        } // h2
+
+        a {
+            &:link,
+            &:active,
+            &:visited {
+                text-decoration: none;
+            } // :link, :active, :visited
+        } // a
+    } // header
+
+    p {
+        &:last-child {
+            margin-bottom: 0;
+        } // :last-child
+    } // p
+
+    .tags {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+            display: inline-block;
+            margin-right: 0.5em;
+            padding: 0.3em;
+            border-radius: 3px;
+            background: #dfdfdf;
+            font: 0.65em $sans-serif-font;
+
+            &:hover {
+                background: $primary-fg-color;
+                color: $primary-bg-color;
+            }
+        }
+    }
+
+    .buttons {
+        margin-top: 0;
+        padding-left: 0;
+        list-style: none;
+
+        li {
+            display: inline-block;
+        } // li
+    } // .buttons
+} // .project
+
+.site-footer-wrap {
+    margin-top: 2em;
+    padding: 2em 0;
+    background: $primary-fg-color;
+    color: #fff;
+
+    a {
+        &:link,
+        &:active,
+        &:visited {
+            color: $secondary-fg-color;
+        } // :link, :active, :visited
+
+        &:hover {
+            color: $primary-bg-color;
+        } // :hover
+    } // a
+} // .site-footer-wrap
+
+.site-footer {
+    .logo {
+        margin-bottom: 1em;
+        text-align: center;
+    } // .logo
+
+    .hearts {
+        color: red;
+    } // .hearts
+} // .site-footer
+

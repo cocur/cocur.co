@@ -1,0 +1,49 @@
+---
+layout: default
+title: Cocur
+permalink: /
+use: [projects]
+---
+
+<p>Cocur is a collection of carefully crafted open source libraries by <a href="https://florian.ec">Florian Eckerstorfer</a>.</p>
+
+{% for project in data.projects %}
+    <section class="project">
+        <header>
+            <h2>
+                {% if project.github %}
+                    <a href="https://github.com/{{ project.github }}">{{ project.title }}</a>
+                {% else %}
+                    {{ project.title }}
+                {% endif %}
+            </h2>
+        </header>
+        <ul class="tags">
+            {% for tag in project.tags %}<li>{{ tag }}</li>{% endfor %}
+        </ul>
+        <ul class="buttons" style="display:none;">
+            {% if project.packagist %}
+                <li>
+                    <a href="https://packagist.org/packages/{{ project.packagist }}"><img src="http://img.shields.io/packagist/v/{{ project.packagist }}.svg" alt="Latest Stable Release"></a>
+                </li>
+            {% endif %}
+            {% if project.travis %}
+                <li>
+                    <a href="https://travis-ci.org/{{ project.travis }}"><img src="http://img.shields.io/travis/{{ project.travis }}.svg" alt="Build Status"></a>
+                </li>
+            {% endif %}
+            {% if false and project.coveralls %}
+                <li>
+                    <a href="https://coveralls.io/r/{{ project.coveralls }}"><img src="http://img.shields.io/coveralls/{{ project.coveralls }}.svg" alt="Code Coverage"></a>
+                </li>
+            {% endif %}
+            {% if project.packagist and project.show_downloads %}
+                <li>
+                    <a href="https://packagist.org/packages/{{ project.packagist }}"><img src="http://img.shields.io/packagist/dm/{{ project.packagist }}.svg" alt="Monthly Downloads"></a>
+                </li>
+            {% endif %}
+        </ul>
+        <p>{{ project.description }}</p>
+    </section>
+{% endfor %}
+

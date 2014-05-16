@@ -1,0 +1,39 @@
+@font-face {
+    font-family: 'Lora';
+    src: url('/fonts/lora-regular.eot');
+    src: url('/fonts/lora-regular.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/lora-regular.woff') format('woff'),
+         url('/fonts/lora-regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lora';
+    src: url('/fonts/lora-bold.eot');
+    src: url('/fonts/lora-bold.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/lora-bold.woff') format('woff'),
+         url('/fonts/lora-bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lora';
+    src: url('/fonts/lora-bolditalic.eot');
+    src: url('/fonts/lora-bolditalic.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/lora-bolditalic.woff') format('woff'),
+         url('/fonts/lora-bolditalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'loraitalic';
+    src: url('/fonts/lora-italic.eot');
+    src: url('/fonts/lora-italic.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/lora-italic.woff') format('woff'),
+         url('/fonts/lora-italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
