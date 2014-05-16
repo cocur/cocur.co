@@ -17,6 +17,10 @@ body {
     font: 1.3em $serif-font;
 } // body
 
+p {
+    line-height: 150%;
+} // p
+
 a {
     &:link,
     &:active,
