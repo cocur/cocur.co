@@ -21,6 +21,7 @@ use: [projects]
         <ul class="tags">
             {% for tag in project.tags %}<li>{{ tag }}</li>{% endfor %}
         </ul>
+        {#
         <ul class="buttons" style="display:none;">
             {% if project.packagist %}
                 <li>
@@ -43,7 +44,16 @@ use: [projects]
                 </li>
             {% endif %}
         </ul>
+        #}
         <p>{{ project.description }}</p>
+        <ul class="links">
+            {% if project.github %}
+                <li><a href="https://github.com/{{ project.github }}">Github</a></li>
+            {% endif %}
+            {% if project.api_docs %}
+                <li><a href="{{ project.api_docs }}">API docs</a></li>
+            {% endif %}
+        </ul>
     </section>
 {% endfor %}
 

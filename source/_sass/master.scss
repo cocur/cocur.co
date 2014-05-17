@@ -105,6 +105,16 @@ a {
             display: inline-block;
         } // li
     } // .buttons
+
+    .links {
+        margin-bottom: 0;
+        padding-left: 0;
+        list-style: none;
+
+        li {
+            display: inline-block;
+        } // li
+    } // .links
 } // .project
 
 .site-footer-wrap {

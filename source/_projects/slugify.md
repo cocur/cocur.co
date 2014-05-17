@@ -6,5 +6,6 @@ packagist: cocur/slugify
 travis: cocur/slugify
 coveralls: cocur/slugify
 show_downloads: true
+api_docs: http://cocur.co/slugify/api/master
 tags: [ php, url, slug ]
 ---
