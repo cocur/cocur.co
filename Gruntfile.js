@@ -104,16 +104,34 @@ module.exports = function(grunt) {
          */
         shell: {
             slugify_api: { command: 'api-gen/slugify.sh' },
+            human_date_api: { command: 'api-gen/human-date.sh '},
         },
         copy: {
             api_dev: {
                 files: [
                     { expand: true, cwd: 'api-gen/code/slugify/build/api', src: '**', dest: 'public_dev/slugify/api' },
+                    {
+                        expand: true,
+                        cwd: 'api-gen/code/human-date/build/api',
+                        src: '**',
+                        dest: 'public_dev/human-date/api'
+                    },
                 ]
             },
             api_prod: {
                 files: [
-                    { expand: true, cwd: 'api-gen/code/slugify/build/api', src: '**', dest: 'public_prod/slugify/api' },
+                    {
+                        expand: true,
+                        cwd: 'api-gen/code/slugify/build/api',
+                        src: '**',
+                        dest: 'public_prod/slugify/api'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'api-gen/code/human-date/build/api',
+                        src: '**',
+                        dest: 'public_prod/human-date/api'
+                    },
                 ]
             }
         },
@@ -166,7 +184,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-responsive-images');
 
     // Build API docs
-    grunt.registerTask('api-gen', [ 'shell:slugify_api' ]);
+    grunt.registerTask('api-gen', [ 'shell:slugify_api', 'shell:human_date_api' ]);
     grunt.registerTask('api:dev', [ 'api-gen', 'copy:api_dev' ]);
     grunt.registerTask('api:prod', [ 'api-gen', 'copy:api_prod' ]);
 
