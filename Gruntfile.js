@@ -100,6 +100,25 @@ module.exports = function(grunt) {
         },
 
         /*
+            API DOCS
+         */
+        shell: {
+            slugify_api: { command: 'api-gen/slugify.sh' },
+        },
+        copy: {
+            api_dev: {
+                files: [
+                    { expand: true, cwd: 'api-gen/code/slugify/build/api', src: '**', dest: 'public_dev/slugify/api' },
+                ]
+            },
+            api_prod: {
+                files: [
+                    { expand: true, cwd: 'api-gen/code/slugify/build/api', src: '**', dest: 'public_prod/slugify/api' },
+                ]
+            }
+        },
+
+        /*
             CLEAN BUILT FILES
          */
         clean: {
@@ -138,20 +157,28 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-sculpin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-devcode');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-shell');
+    grunt.loadNpmTasks('grunt-sculpin');
+    grunt.loadNpmTasks('grunt-devcode');
     grunt.loadNpmTasks('grunt-responsive-images');
 
+    // Build API docs
+    grunt.registerTask('api-gen', [ 'shell:slugify_api' ]);
+    grunt.registerTask('api:dev', [ 'api-gen', 'copy:api_dev' ]);
+    grunt.registerTask('api:prod', [ 'api-gen', 'copy:api_prod' ]);
+
     // Build tasks
-    grunt.registerTask('build:dev', ['sculpin-generate:dev', 'sass:dev', 'uglify:dev', 'cssmin:dev']);
+    grunt.registerTask('build:dev', ['sculpin-generate:dev', 'sass:dev', 'uglify:dev', 'cssmin:dev', 'api:dev']);
     grunt.registerTask('build:prod', [
         'sass:prod',
         'sculpin-generate:prod',
         'devcode:prod',
         'uglify:prod',
-        'cssmin:prod'
+        'cssmin:prod',
+        'api:prod'
     ]);
     grunt.registerTask('build', ['build:dev']);
 };

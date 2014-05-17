@@ -1,4 +1,5 @@
 /.sass-cache/
+/api-gen/code/
 /bower_components/
 /node_modules/
 /public_dev/
