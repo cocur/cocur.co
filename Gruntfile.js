@@ -105,6 +105,7 @@ module.exports = function(grunt) {
         shell: {
             slugify_api: { command: 'api-gen/slugify.sh' },
             human_date_api: { command: 'api-gen/human-date.sh '},
+            nqm_api: { command: 'api-gen/nqm.sh' }
         },
         copy: {
             api_dev: {
@@ -116,6 +117,7 @@ module.exports = function(grunt) {
                         src: '**',
                         dest: 'public_dev/human-date/api'
                     },
+                    { expand: true, cwd: 'api-gen/code/nqm/build/api', src: '**', dest: 'public_dev/nqm/api' },
                 ]
             },
             api_prod: {
@@ -132,6 +134,7 @@ module.exports = function(grunt) {
                         src: '**',
                         dest: 'public_prod/human-date/api'
                     },
+                    { expand: true, cwd: 'api-gen/code/nqm/build/api', src: '**', dest: 'public_prod/nqm/api' },
                 ]
             }
         },
@@ -184,7 +187,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-responsive-images');
 
     // Build API docs
-    grunt.registerTask('api-gen', [ 'shell:slugify_api', 'shell:human_date_api' ]);
+    grunt.registerTask('api-gen', [ 'shell:slugify_api', 'shell:human_date_api', 'shell:nqm_api' ]);
     grunt.registerTask('api:dev', [ 'api-gen', 'copy:api_dev' ]);
     grunt.registerTask('api:prod', [ 'api-gen', 'copy:api_prod' ]);
 
