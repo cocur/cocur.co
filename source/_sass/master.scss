@@ -8,13 +8,13 @@ $primary-fg-color: #4a4a4a;
 $secondary-fg-color: #7ed321;
 $primary-bg-color: #f6f6f6;
 
-$serif-font: Lora, Georgia, 'Times New Roman', serif;
-$sans-serif-font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$serif-font: 'Anonymous Pro', 'Courier New', Courier, monospace;
+$sans-serif-font: 'Anonymous Pro';
 
 body {
     background: $primary-bg-color;
     color: $primary-fg-color;
-    font: 1.3em $serif-font;
+    font: 1em $serif-font;
 } // body
 
 p {
@@ -29,12 +29,11 @@ a {
     } // :link, :active, :visited
 
     &:hover {
-        color: $secondary-fg-color;
+        color: lighten($primary-fg-color, 30%);
         text-decoration: none;
     } // :hover
 } // a
 
-.site-header,
 .site-footer,
 .wrap {
     @include outer-container;
@@ -45,20 +44,38 @@ a {
 } // .site-header, .site-footer, .wrap
 
 .site-header {
+    @include span-columns(3);
+
     .logo {
         margin: 2em 0;
         text-align: center;
+        font-size: 1em;
     } // .logo
 } // .site-header
 
+.main {
+    @include span-columns(9);
+
+    padding: 2em 0;
+
+    p:first-child {
+        margin-top: 0;
+    }
+}
+
 .project {
     margin-bottom: 1em;
-    padding: 1em;
-    border: 5px solid $secondary-fg-color;
+    padding: .5em .5em .5em 0;
+    border-right: 5px solid transparent;
+
+    &:hover {
+        border-right-color: $secondary-fg-color;
+    }
 
     header {
         h2 {
             margin: 0;
+            font-size: 1em;
         } // h2
 
         a {
@@ -71,43 +88,14 @@ a {
     } // header
 
     p {
+        margin: .2em 0;
         &:last-child {
             margin-bottom: 0;
         } // :last-child
     } // p
 
-    .tags {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-
-        li {
-            display: inline-block;
-            margin-right: 0.5em;
-            padding: 0.3em;
-            border-radius: 3px;
-            background: #dfdfdf;
-            font: 0.65em $sans-serif-font;
-
-            &:hover {
-                background: $primary-fg-color;
-                color: $primary-bg-color;
-            }
-        }
-    }
-
-    .buttons {
-        margin-top: 0;
-        padding-left: 0;
-        list-style: none;
-
-        li {
-            display: inline-block;
-        } // li
-    } // .buttons
-
     .links {
-        margin-bottom: 0;
+        margin: .2em 0;
         padding-left: 0;
         list-style: none;
 
@@ -118,22 +106,7 @@ a {
 } // .project
 
 .site-footer-wrap {
-    margin-top: 2em;
-    padding: 2em 0;
-    background: $primary-fg-color;
-    color: #fff;
-
-    a {
-        &:link,
-        &:active,
-        &:visited {
-            color: $secondary-fg-color;
-        } // :link, :active, :visited
-
-        &:hover {
-            color: $primary-bg-color;
-        } // :hover
-    } // a
+    margin-top: 1em;
 } // .site-footer-wrap
 
 .site-footer {

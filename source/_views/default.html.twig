@@ -13,37 +13,29 @@
 </head>
 <body>
 
-<header class="site-header" role="banner">
-
-    <h1 class="logo">
-        <a href="/">
-            <picture>
-                <!--[if IE 9]><video style="display: none;"><![endif]-->
-                <source srcset="/img/logo.png, /img/logo.png 2x">
-                <!--[if IE 9]></video><![endif]-->
-                <img srcset="/img/logo.png, /img/logo.png 2x" alt="Cocur">
-            </picture>
-        </a>
-    </h1>
-
-</header>
-
 <div class="wrap">
-    <main role="main">
+    <header class="site-header" role="banner">
+
+        <h1 class="logo">
+            <a href="/">
+                <picture>
+                    <!--[if IE 9]><video style="display: none;"><![endif]-->
+                    <source srcset="/img/logo.png, /img/logo.png 2x">
+                    <!--[if IE 9]></video><![endif]-->
+                    <img srcset="/img/logo.png, /img/logo.png 2x" alt="Cocur">
+                </picture>
+            </a>
+        </h1>
+
+    </header>
+
+    <main class="main" role="main">
         {% block content_wrapper %}{% block content %}{% endblock %}{% endblock %}
     </main>
 </div>
 
 <div class="site-footer-wrap">
     <footer class="site-footer" role="contentinfo">
-        <div class="logo">
-            <picture>
-                <!--[if IE 9]><video style="display: none;"><![endif]-->
-                <source srcset="/img/logo-small.png, /img/logo-small.png 2x">
-                <!--[if IE 9]></video><![endif]-->
-                <img srcset="/img/logo-small.png, /img/logo-small.png 2x" alt="Cocur">
-            </picture>
-        </div>
         <small><span class="hearts">&hearts;</span> <time datetime="2014">2014</time> <a href="https://florian.ec">Florian Eckerstorfer</a>. Designed and developed in Vienna, Europe.</small>
     </footer>
 </div>
