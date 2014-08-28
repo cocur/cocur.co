@@ -6,7 +6,7 @@ mkdir -p code
 
 if [ -d "$DIR/code/nqm" ]; then
     cd code/nqm
-    git pull origin master
+    git pull origin
 else
     git clone https://github.com/cocur/nqm code/nqm
     cd code/nqm

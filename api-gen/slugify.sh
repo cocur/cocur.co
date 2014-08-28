@@ -6,7 +6,7 @@ mkdir -p code
 
 if [ -d "$DIR/code/slugify" ]; then
     cd code/slugify
-    git pull origin master
+    git pull origin
 else
     git clone https://github.com/cocur/slugify code/slugify
     cd code/slugify
