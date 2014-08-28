@@ -10,7 +10,7 @@ use: [projects]
 {% for project in data.projects %}
     <section class="project">
         <header>
-            <h2>{{ project.title }}</h2>
+            <h2>{{ project.title }} {% if project.stable %}<span class="badge stable">stable</span>{% endif %}</h2>
         </header>
         <p>
             {{ project.description }}

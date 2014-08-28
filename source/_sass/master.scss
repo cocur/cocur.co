@@ -78,6 +78,15 @@ a {
             font-size: 1em;
         } // h2
 
+        .badge.stable {
+            display: inline-block;
+            padding: .2em .4em;
+            background: $secondary-fg-color;
+            color: #fff;
+            font-size: .8em;
+            font-weight: normal;
+        }
+
         a {
             &:link,
             &:active,
