@@ -12,8 +12,8 @@ use: [projects]
         <header>
             <h2>{{ project.title }} {% if project.stable %}<span class="badge stable">stable</span>{% endif %}</h2>
         </header>
+        <p>{{ project.description }}</p>
         <p>
-            {{ project.description }}
             {% if project.github %}
                 <a href="https://github.com/{{ project.github }}">Github</a>
             {% endif %}
