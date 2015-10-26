@@ -8,6 +8,7 @@ use: [projects]
 <p>Cocur is a collection of carefully crafted open source libraries by <a href="https://florian.ec">Florian Eckerstorfer</a>.</p>
 
 {% for project in data.projects %}
+    {% if project.index %}
     <section class="project">
         <header>
             <h2>{{ project.title }} {% if project.stable %}<span class="badge stable">stable</span>{% endif %}</h2>
@@ -17,10 +18,16 @@ use: [projects]
             {% if project.github %}
                 <a href="https://github.com/{{ project.github }}">Github</a>
             {% endif %}
-            {% if project.api_docs %}
-                <a href="{{ project.api_docs }}">API docs</a>
+            {% if project.travis %}
+                <a href="https://travis-ci.org/{{ project.travis }}">Travis</a>
+            {% endif %}
+            {% if project.packagist %}
+                <a href="https://packagist.org/packages/{{ project.packagist }}">Packagist</a>
             {% endif %}
         </p>
     </section>
+    {% endif %}
 {% endfor %}
+
+<p><a href="/dashboard.html">Dashboard</a> overview over all Cocur projects.</p>
 

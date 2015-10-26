@@ -1,8 +1,9 @@
 ---
-title: NQM
+title:       NQM
 description: Named Query Manager (NQM) helps you SQL organise queries in files.
-github: cocur/nqm
-travis: cocur/nqm
-api_docs: http://cocur.co/nqm/api/master
-tags: [ php, database, pdo ]
+tags:        [ php, database, pdo ]
+index:       true
+github:      cocur/nqm
+travis:      cocur/nqm
+packagist:   cocur/nqm
 ---

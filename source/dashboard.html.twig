@@ -1,0 +1,37 @@
+---
+layout: default
+title: Dashboard
+permalink: /dashboard.html
+use: [projects]
+---
+
+<ul class="badges-list">
+{% for project in data.projects %}
+    <li>
+        <h2>{% if project.github %}{{ project.github }}{% else %}{{ project.title }}{% endif %}</h2>
+        {% if project.travis %}
+            <a href="https://travis-ci.org/{{ project.travis }}"><img src="https://travis-ci.org/{{ project.travis }}.svg?branch=master" alt="Travis Build Status"></a>
+        {% endif %}
+        {% if project.appveyor %}
+            <a href="https://ci.appveyor.com/project/{{ project.appveyor }}"><img src="https://ci.appveyor.com/api/projects/status/{{ project.appveyor_id }}?svg=true" alt="AppVeyor Build Status"></a>
+        {% endif %}
+        {% if project.scrutinizer %}
+            <a href="https://scrutinizer-ci.com/g/{{ project.scrutinizer }}/?branch=master"><img src="https://img.shields.io/scrutinizer/g/{{ project.scrutinizer }}.svg?style=flat" alt="Scrutinizer Code Quality"></a>
+            <a href="https://scrutinizer-ci.com/g/{{ project.scrutinizer }}/?branch=master"><img src="https://scrutinizer-ci.com/g/{{ project.scrutinizer }}/badges/coverage.png?b=master&style=flat-square" alt="Scrutinizer Code Coverage"></a>
+        {% endif %}
+        {% if project.styleci %}
+            <a href="https://styleci.io/repos/{{ project.styleci }}"><img src="https://styleci.io/repos/{{ project.styleci }}/shield" alt="Style CI"></a>
+        {% endif %}<br>
+        {% if project.packagist %}
+            <a href="https://packagist.org/packages/{{ project.packagist }}"><img src="https://img.shields.io/packagist/v/{{ project.packagist }}.svg" alt="Latest Release"></a>
+            <img src="https://img.shields.io/packagist/l/{{ project.packagist }}.svg?style=flat-square">
+            <a href="https://packagist.org/packages/{{ project.packagist }}"><img src="https://img.shields.io/packagist/dt/{{ project.packagist }}.svg" alt="Total Downloads"></a>
+        {% endif %}<br>
+        {% if project.github %}
+            <a href="https://github.com/{{ project.github }}"><img src="https://img.shields.io/github/stars/{{ project.github }}.svg?style=social&label=Star"></a>
+            <a href="https://github.com/{{ project.github }}"><img src="https://img.shields.io/github/forks/{{ project.github }}.svg?style=social&label=Fork"></a>
+            <a href="https://github.com/{{ project.github }}"><img src="https://img.shields.io/github/watchers/{{ project.github }}.svg?style=social&label=Watch"></a>
+        {% endif %}
+    </li>
+{% endfor %}
+</ul>
