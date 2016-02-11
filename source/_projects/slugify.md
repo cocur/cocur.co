@@ -1,6 +1,6 @@
 ---
 title:       Slugify
-description: Converts a string to a slug. Includes integrations for Symfony, Silex, Laraval and Twig.
+description: Converts a string to a slug. Includes integrations for Symfony, Silex, Laravel and Twig.
 tags:        [ php, url, slug ]
 stable:      true
 index:       true
